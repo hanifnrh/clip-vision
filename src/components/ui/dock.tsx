@@ -43,7 +43,8 @@ const navItems = [
   {
     id: 6,
     label: "Profile",
-    icon: <img src="/profile.jpg" alt="Profile" className="w-6 h-6 rounded-full" />,  // Profile picture from public
+    href: "/profile",
+    icon: <img src="/profile.jpg" alt="Profile" className="w-6 h-auto rounded-full" />,  // Profile picture from public
   },
 ];
 
