@@ -88,7 +88,7 @@ export default function ResponsiveNavbar() {
 
                             <ModeToggle></ModeToggle>
 
-                            <Link href="/">
+                            <Link href="/profile">
                                 <div
                                     className="cursor-pointer uppercase text-zinc-500 hover:text-foreground ml-2"
                                 >

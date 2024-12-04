@@ -10,16 +10,17 @@ const VideoCard = ({ video, channel }: { video: any, channel?: any }) => {
     const router = useRouter();
     const publishedAt = video.snippet.publishedAt;
 
-    function formatCount(count: number): string {
-        if (count === undefined || isNaN(count)) {
-            return '0'; // Or any fallback value you'd like to display
+    function formatCount(count: any): string {
+        if (count === undefined || count === null || isNaN(count)) {
+            return '0';
         }
-        if (count >= 1000000) {
-            return (count / 1000000).toFixed(2) + 'M';
-        } else if (count >= 1000) {
-            return (count / 1000).toFixed(2) + 'K';
+        const numCount = Number(count);
+        if (numCount >= 1000000) {
+            return (numCount / 1000000).toFixed(2) + 'M';
+        } else if (numCount >= 1000) {
+            return (numCount / 1000).toFixed(2) + 'K';
         }
-        return count.toFixed(0);
+        return numCount.toFixed(0);
     }
 
     const timeAgo = publishedAt

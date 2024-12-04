@@ -18,7 +18,7 @@ function SearchContent() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'efa326abc6mshb0cdb1f33157ceep1f924fjsn15ea53e1a274',
+                'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };
@@ -48,7 +48,7 @@ function SearchContent() {
 
     return (
         <div className="flex items-center justify-center min-h-screen px-0 sm:px-8 lg:px-20 py-4">
-            <main className="flex flex-col gap-8 row-start-2 items-center justify-center">
+            <main className="w-full h-screen flex flex-col gap-8 items-center justify-center">
                 {loading ? (
                     <div className="flex justify-center items-center w-full h-full">
                         <Dots />

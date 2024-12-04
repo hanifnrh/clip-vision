@@ -5,23 +5,7 @@ import VideoCard from '@/components/ui/videocard';
 import { useEffect, useState } from 'react';
 import { LuDot } from 'react-icons/lu';
 
-interface Params {
-    channelId: string;
-}
-
-const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
-    // Use React.use() to unwrap the params promise
-    const [channelId, setChannelId] = useState<string | null>(null);
-
-    useEffect(() => {
-        const fetchParams = async () => {
-            const resolvedParams = await params; // unwrap the Promise
-            setChannelId(resolvedParams.channelId);
-        };
-
-        fetchParams();
-    }, [params]);
-
+const ChannelDetail = () => {
     const [channelDetails, setChannelDetails] = useState<any>(null);
     const [videos, setVideos] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -36,10 +20,9 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
 
     // Fetch channel details
     useEffect(() => {
-        if (!channelId) return;
 
         const fetchChannelDetails = async () => {
-            const url = `https://youtube-v31.p.rapidapi.com/channels?part=snippet%2Cstatistics%2CbrandingSettings&id=${channelId}`;
+            const url = `https://youtube-v31.p.rapidapi.com/channels?part=snippet%2Cstatistics%2CbrandingSettings&id=UC74PZw53jrvgb_wt3VkcMiw`;
             const options = {
                 method: 'GET',
                 headers: {
@@ -58,14 +41,12 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
         };
 
         fetchChannelDetails();
-    }, [channelId]);
+    },);
 
     // Fetch channel videos
     useEffect(() => {
-        if (!channelId) return;
-
         const fetchVideos = async () => {
-            const url = `https://youtube-v31.p.rapidapi.com/search?channelId=${channelId}&part=snippet%2Cid&order=date&maxResults=50`;
+            const url = `https://youtube-v31.p.rapidapi.com/search?channelId=UC74PZw53jrvgb_wt3VkcMiw&part=snippet%2Cid&order=date&maxResults=50`;
             const options = {
                 method: 'GET',
                 headers: {
@@ -86,12 +67,16 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
         };
 
         fetchVideos();
-    }, [channelId]);
+    },);
 
     if (!channelDetails) {
         return (
-            <div className="flex justify-center items-center w-full h-full">
-                <Dots />
+            <div className="flex items-center justify-center h-screen px-0 sm:px-8 lg:px-20 py-4">
+                <div className="w-full h-full flex flex-col gap-8 items-center justify-center">
+                    <div className="flex justify-center items-center w-full h-full">
+                        <Dots />
+                    </div>
+                </div>
             </div>
         );
     }
@@ -156,14 +141,15 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            {videos.map((video: any) => (
+                            {videos.map((video: any, index: number) => (
                                 <VideoCard
-                                    key={video.id.videoId}
+                                    key={video.id.videoId || index}  // Use videoId if available, else fallback to index
                                     video={video}
                                     channel={channelDetails} // Casting aman
                                 />
                             ))}
                         </div>
+
                     )}
                 </div>
             </main>

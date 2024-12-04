@@ -15,24 +15,25 @@ const VideoCardSuggested = ({ video, channelDetails }: VideoCardSuggestedProps) 
     const router = useRouter();
     const publishedAt = video.snippet.publishedAt;
 
-    function formatCount(count: number): string {
-        if (count >= 1000000) {
-            return (count / 1000000).toFixed(2) + 'M';
-        } else if (count >= 1000) {
-            return (count / 1000).toFixed(2) + 'K';
+    function formatCount(count: any): string {
+        if (count === undefined || count === null || isNaN(count)) {
+            return '0';
         }
-        return (count).toFixed(0);
+        const numCount = Number(count);
+        if (numCount >= 1000000) {
+            return (numCount / 1000000).toFixed(2) + 'M';
+        } else if (numCount >= 1000) {
+            return (numCount / 1000).toFixed(2) + 'K';
+        }
+        return numCount.toFixed(0);
     }
 
-    // Fallback for `publishedAt`
     const timeAgo = publishedAt
         ? formatDistanceToNow(new Date(publishedAt), { addSuffix: true })
         : "unknown publish date";
 
-    // Decode HTML entities in the title
     const decodedTitle = decode(video.snippet.title);
 
-    // Navigate to the video page
     const handleCardClick = () => {
         router.push(`/watch/${video.id.videoId}`);
     };
