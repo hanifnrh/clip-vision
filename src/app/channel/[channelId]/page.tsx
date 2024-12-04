@@ -10,12 +10,11 @@ interface Params {
 }
 
 const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
-    // Use React.use() to unwrap the params promise
     const [channelId, setChannelId] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchParams = async () => {
-            const resolvedParams = await params; // unwrap the Promise
+            const resolvedParams = await params;
             setChannelId(resolvedParams.channelId);
         };
 
@@ -27,14 +26,13 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
     const [loading, setLoading] = useState<boolean>(true);
     function formatSubscriberCount(count: number): string {
         if (count >= 1000000) {
-            return (count / 1000000).toFixed(1) + 'M'; // Format juta (M)
+            return (count / 1000000).toFixed(1) + 'M';
         } else if (count >= 1000) {
-            return (count / 1000).toFixed(1) + 'K'; // Format ribu (K)
+            return (count / 1000).toFixed(1) + 'K';
         }
-        return count.toString(); // Kembalikan sebagai string jika kurang dari 1000
+        return count.toString();
     }
 
-    // Fetch channel details
     useEffect(() => {
         if (!channelId) return;
 
@@ -43,7 +41,7 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
             const options = {
                 method: 'GET',
                 headers: {
-                    'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                    'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                     'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
                 },
             };
@@ -69,7 +67,7 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
             const options = {
                 method: 'GET',
                 headers: {
-                    'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                    'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                     'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
                 },
             };
@@ -160,7 +158,7 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
                                 <VideoCard
                                     key={video.id.videoId}
                                     video={video}
-                                    channel={channelDetails} // Casting aman
+                                    channel={channelDetails}
                                 />
                             ))}
                         </div>

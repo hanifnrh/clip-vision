@@ -34,7 +34,7 @@ export default function VideoPlayer() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };
@@ -55,7 +55,7 @@ export default function VideoPlayer() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };
@@ -85,7 +85,7 @@ export default function VideoPlayer() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };

@@ -9,7 +9,7 @@ function SearchContent() {
     const searchParams = useSearchParams();
     const query = searchParams.get('query');
     console.log(query);
-    const [videos, setVideos] = useState<any[]>([]); // Ensure videos is always an array
+    const [videos, setVideos] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     const fetchVideos = async () => {
@@ -18,7 +18,7 @@ function SearchContent() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };
@@ -26,23 +26,23 @@ function SearchContent() {
         try {
             const response = await fetch(url, options);
             const result = await response.json();
-            console.log(result);  // Log the API response for inspection
+            console.log(result);
             if (result.items) {
-                setVideos(result.items); // Ensure result.items is set properly
+                setVideos(result.items);
             } else {
-                setVideos([]); // Set an empty array if no items are returned
+                setVideos([]);
             }
             setLoading(false);
         } catch (error) {
             console.error('Error fetching data:', error);
-            setVideos([]); // Set an empty array in case of error
+            setVideos([]);
             setLoading(false);
         }
     };
 
     useEffect(() => {
         if (query) {
-            fetchVideos(); // Fetch videos when query exists
+            fetchVideos();
         }
     }, [query]);
 

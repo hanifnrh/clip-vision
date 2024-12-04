@@ -11,14 +11,13 @@ const ChannelDetail = () => {
     const [loading, setLoading] = useState<boolean>(true);
     function formatSubscriberCount(count: number): string {
         if (count >= 1000000) {
-            return (count / 1000000).toFixed(1) + 'M'; // Format juta (M)
+            return (count / 1000000).toFixed(1) + 'M';
         } else if (count >= 1000) {
-            return (count / 1000).toFixed(1) + 'K'; // Format ribu (K)
+            return (count / 1000).toFixed(1) + 'K';
         }
-        return count.toString(); // Kembalikan sebagai string jika kurang dari 1000
+        return count.toString();
     }
 
-    // Fetch channel details
     useEffect(() => {
 
         const fetchChannelDetails = async () => {
@@ -26,7 +25,7 @@ const ChannelDetail = () => {
             const options = {
                 method: 'GET',
                 headers: {
-                    'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                    'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                     'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
                 },
             };
@@ -43,14 +42,13 @@ const ChannelDetail = () => {
         fetchChannelDetails();
     },);
 
-    // Fetch channel videos
     useEffect(() => {
         const fetchVideos = async () => {
             const url = `https://youtube-v31.p.rapidapi.com/search?channelId=UC74PZw53jrvgb_wt3VkcMiw&part=snippet%2Cid&order=date&maxResults=50`;
             const options = {
                 method: 'GET',
                 headers: {
-                    'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+                    'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
                     'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
                 },
             };
@@ -149,7 +147,6 @@ const ChannelDetail = () => {
                                 />
                             ))}
                         </div>
-
                     )}
                 </div>
             </main>

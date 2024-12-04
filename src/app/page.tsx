@@ -26,7 +26,7 @@ export default function Home() {
     const options = {
       method: 'GET',
       headers: {
-        'x-rapidapi-key': 'f144fca3f7msh7d7a5817ae75ab6p149cc7jsn9be2f7ff8e22',
+        'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
         'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
       },
     };
@@ -35,7 +35,6 @@ export default function Home() {
       const response = await fetch(videoUrl, options);
       const result = await response.json();
 
-      // Pastikan semua data memiliki tipe yang benar
       const videoItems: VideoItem[] = result.items;
 
       setVideos(videoItems);
@@ -66,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="flex items-center justify-center min-h-screen px-0 sm:px-8 lg:px-20 py-4">
-      <main className="w-full h-screen flex flex-col gap-8 items-center justify-center">
+      <main className="w-full flex flex-col gap-8 items-center justify-center">
         {loading ? (
           <div className="flex justify-center items-center w-full h-full">
             <Dots />
