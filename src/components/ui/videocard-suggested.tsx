@@ -43,7 +43,7 @@ const VideoCardSuggested = ({ video, channelDetails }: VideoCardSuggestedProps) 
             <div onClick={handleCardClick} className="flex flex-col sm:flex-row w-full gap-2 items-start justify-start">
                 <div className="w-full sm:w-2/3 xl:1/3">
                     <img
-                        src={video.snippet.thumbnails.high.url}
+                        src={video.snippet.thumbnails.high.url ?? '/default_thumbnail.jpg'}
                         alt={decodedTitle}
                         className="w-full sm:rounded-lg aspect-video object-cover"
                     />

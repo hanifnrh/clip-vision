@@ -41,7 +41,7 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
             const options = {
                 method: 'GET',
                 headers: {
-                    'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
+                    'x-rapidapi-key': '23380cf958mshacfe5b08a78621ap1efa9ejsnf3a75df334e7',
                     'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
                 },
             };
@@ -67,7 +67,7 @@ const ChannelDetail = ({ params }: { params: Promise<Params> }) => {
             const options = {
                 method: 'GET',
                 headers: {
-                    'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
+                    'x-rapidapi-key': '23380cf958mshacfe5b08a78621ap1efa9ejsnf3a75df334e7',
                     'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
                 },
             };

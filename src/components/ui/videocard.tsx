@@ -38,7 +38,7 @@ const VideoCard = ({ video, channel }: { video: any, channel?: any }) => {
             <div onClick={handleCardClick} className="flex flex-col w-full gap-2 items-start justify-start">
                 <div>
                     <img
-                        src={video.snippet.thumbnails.high.url}
+                        src={video.snippet.thumbnails.high.url ?? "/default_thumbnail.jpg"}
                         alt={decodedTitle}
                         className="w-full sm:rounded-xl aspect-video object-cover"
                     />

@@ -34,7 +34,7 @@ export default function VideoPlayer() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
+                'x-rapidapi-key': '23380cf958mshacfe5b08a78621ap1efa9ejsnf3a75df334e7',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };
@@ -55,7 +55,7 @@ export default function VideoPlayer() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
+                'x-rapidapi-key': '23380cf958mshacfe5b08a78621ap1efa9ejsnf3a75df334e7',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };
@@ -85,7 +85,7 @@ export default function VideoPlayer() {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'f6c6a4693dmshf0cd805b8522a5fp13b082jsnd6a58e363b55',
+                'x-rapidapi-key': '23380cf958mshacfe5b08a78621ap1efa9ejsnf3a75df334e7',
                 'x-rapidapi-host': 'youtube-v31.p.rapidapi.com',
             },
         };
@@ -207,7 +207,9 @@ export default function VideoPlayer() {
                     {videoDetails && (
                         <div className="mt-4 p-4 bg-gray-100 dark:bg-zinc-900 rounded-xl text-black dark:text-white w-full">
                             <p className="text-md body text-gray-700 dark:text-white inline-flex items-center">
-                                {formatCount(videoDetails.statistics.viewCount)} views <LuDot />
+                                {videoDetails.statistics.viewCount
+                                    ? `${formatCount(videoDetails.statistics.viewCount)} views · `
+                                    : ''}{' '}
                                 Uploaded on{' '}
                                 {new Date(videoDetails.snippet.publishedAt).toLocaleDateString()} (
                                 {formatDistanceToNow(parseISO(videoDetails.snippet.publishedAt), {
@@ -223,7 +225,9 @@ export default function VideoPlayer() {
                     {videoDetails && (
                         <div className="mt-4 p-4 bg-gray-100 dark:bg-zinc-900 rounded-xl text-black dark:text-white w-full">
                             <p className="text-xs body text-gray-700 dark:text-white inline-flex items-center">
-                                {formatCount(videoDetails.statistics.viewCount)} views ·
+                                {videoDetails.statistics.viewCount
+                                    ? `${formatCount(videoDetails.statistics.viewCount)} views · `
+                                    : ''}{' '}
                                 Uploaded on{' '}
                                 {new Date(videoDetails.snippet.publishedAt).toLocaleDateString()} (
                                 {formatDistanceToNow(parseISO(videoDetails.snippet.publishedAt), {
